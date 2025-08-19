@@ -28,23 +28,25 @@ namespace EasyMcConnect
             InitializeComponent();
             fs.Close();
             
-            if (!(File.Exists("emcc.json") || (new FileInfo("emcc.json").Length == 0)))
+            if ((!File.Exists("emcc.json") )|| (new FileInfo("emcc.json").Length == 0))
             {
                 FileStream fs = new FileStream("emcc.json", FileMode.OpenOrCreate);
-                byte[] buffer = new byte[fs.Length];
+                StreamWriter sw = new StreamWriter(fs);
                 string token = Guid.NewGuid().ToString();
-                buffer = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(new Config { token = token }));
-                fs.Write(buffer, 0, buffer.Length);
-                fs.Flush();
+                sw.Write(JsonConvert.SerializeObject(new Config { token = token }));
+                sw.Flush();
+                sw.Close();
                 fs.Close();
+                this.token = token;
             }
             else
             {
                 FileStream fs2 = new FileStream("emcc.json", FileMode.Open);
-                byte[] buffer2 = new byte[fs2.Length];
-                fs2.Read(buffer2, 0, buffer2.Length);
-                Config config = JsonConvert.DeserializeObject<Config>(Encoding.UTF8.GetString(buffer2));
+                StreamReader sr = new StreamReader(fs2);
+                
+                Config config = JsonConvert.DeserializeObject<Config>(sr.ReadToEnd());
                 this.token = config.token;
+                sr.Close();
                 fs2.Close();
             }
 
@@ -170,9 +172,15 @@ remotePort = {textBox3_frp.Text}";
                     Application.Current.Dispatcher.Invoke(() =>
                     {
                         textBox4_et.AppendText(e.Data + "\r\n");
-                        Regex IPAd = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
-                        MatchCollection MatchResult = IPAd.Matches(e.Data);
-                        textBox3_et.Text = MatchResult[0].Value;
+                        try {
+                            Regex IPAd = new Regex(@"\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b");
+                            MatchCollection MatchResult = IPAd.Matches(e.Data);
+                            textBox3_et.Text = MatchResult[0].Value;
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
                     });
                 }
             });

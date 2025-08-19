@@ -9,14 +9,14 @@
     xmlns:ui="http://schemas.inkore.net/lib/ui/wpf/modern"
     Title="MainWindow"
     Width="800"
-    Height="474"
+    Height="511"
     ui:ThemeManager.IsThemeAware="True"
     ui:WindowHelper.SystemBackdropType="Mica"
     ui:WindowHelper.UseModernWindowStyle="True"
     mc:Ignorable="d" Loaded="Window_Loaded">
     <TabControl x:Name="tabControl" IsSynchronizedWithCurrentItem="True" OverridesDefaultStyle="True">
         <TabItem Header="FRP">
-            <Grid Background="#FFE5E5E5" Margin="2,0,-2,0">
+            <Grid Background="#FFE5E5E5" Margin="2,0,-2,0" Height="464">
                 <Button
                     x:Name="button1_frp"
                     Width="368"
@@ -84,7 +84,7 @@
                     VerticalAlignment="Top"
                     Content="远程端口"
                     RenderTransformOrigin="0.488,0.657" />
-                <Button x:Name="button3_frp" Content="清空输出" Margin="405,0,0,0" VerticalAlignment="Top" Height="60" Width="385" Click="button3_frp_Click"/>
+                <Button x:Name="button3_frp" Content="清空输出" Margin="405,10,0,0" VerticalAlignment="Top" Height="60" Width="385" Click="button3_frp_Click"/>
                 <Label
                     x:Name="label复制__C_1复制__C_复制__C_复制__C_复制__C_"
                     Height="31"
@@ -97,6 +97,10 @@
         </TabItem>
         <TabItem Height="30" Header="Easytier" Width="100">
             <Grid Background="#FFE5E5E5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="29*"/>
+                    <ColumnDefinition Width="771*"/>
+                </Grid.ColumnDefinitions>
                 <Button
                     x:Name="button1_et"
                     Width="368"
@@ -104,34 +108,34 @@
                     Margin="26,240,0,0"
                     VerticalAlignment="Top"
                     Content="Start"
-                    Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" Click="button1_et_Click" />
+                    Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" Click="button1_et_Click" Grid.ColumnSpan="2" />
                 <Button
                     x:Name="button2_et"
                     Width="368"
                     Height="76"
                     Margin="26,322,0,0"
                     VerticalAlignment="Top"
-                    Content="Stop" Click="button2_et_Click" />
+                    Content="Stop" Click="button2_et_Click" Grid.ColumnSpan="2" />
                 <TextBox
                     x:Name="textBox4_et"
                     Width="385"
                     Height="321"
-                    Margin="405,0,0,29"
+                    Margin="376,0,0,37"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Background="Gray"
                     Foreground="DarkGreen"
                     IsReadOnlyCaretVisible="True"
-                    TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" />
-                <Button x:Name="button3_et" Content="清空输出" Margin="405,0,0,0" VerticalAlignment="Top" Height="60" Width="385" Click="button3_et_Click"/>
+                    TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" Grid.Column="1" />
+                <Button x:Name="button3_et" Content="清空输出" Margin="376,10,0,0" VerticalAlignment="Top" Height="60" Width="385" Click="button3_et_Click" Grid.Column="1"/>
                 <TextBox
                     x:Name="textBox3_et"
                     Width="292"
                     Height="42"
-                    Margin="102,135,0,0"
+                    Margin="73,135,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
+                    TextWrapping="Wrap" Grid.Column="1" />
                 <Label
                     x:Name="label复制__C_1复制__C_复制__C_复制__C_复制__C_复制__C_"
                     Height="31"
@@ -139,37 +143,37 @@
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
                     Content="本地ip"
-                    RenderTransformOrigin="0.488,0.657" />
+                    RenderTransformOrigin="0.488,0.657" Grid.ColumnSpan="2" />
                 <TextBox
                     x:Name="textBox1_et"
                     Width="290"
                     Height="24"
-                    Margin="102,38,0,0"
+                    Margin="73,38,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
+                    TextWrapping="Wrap" Grid.Column="1" />
                 <Label
                     x:Name="label复制__C_2"
                     Height="24"
                     Margin="24,46,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="应用名称" />
+                    Content="应用名称" Grid.ColumnSpan="2" />
                 <TextBox
                     x:Name="textBol2_et"
                     Width="290"
                     Height="24"
-                    Margin="102,90,0,0"
+                    Margin="73,90,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
+                    TextWrapping="Wrap" Grid.Column="1" />
                 <Label
                     x:Name="label复制__C_2复制__C_"
                     Height="24"
                     Margin="24,98,0,0"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Top"
-                    Content="应用密码" />
+                    Content="应用密码" Grid.ColumnSpan="2" />
             </Grid>
         </TabItem>
     </TabControl>
