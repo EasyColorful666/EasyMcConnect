@@ -13,126 +13,15 @@
     ui:ThemeManager.IsThemeAware="True"
     ui:WindowHelper.SystemBackdropType="Mica"
     ui:WindowHelper.UseModernWindowStyle="True"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Loaded="Window_Loaded">
     <TabControl x:Name="tabControl" IsSynchronizedWithCurrentItem="True" OverridesDefaultStyle="True">
-        <TabItem Header="P2P">
-            <Grid Background="#FFE5E5E5">
-                <Button
-                    x:Name="button1"
-                    Width="368"
-                    Height="76"
-                    Margin="24,260,0,0"
-                    VerticalAlignment="Top"
-                    Click="button1_Click"
-                    Content="Start"
-                    Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" />
-                <Button
-                    x:Name="button3"
-                    Width="368"
-                    Height="76"
-                    Margin="24,341,0,0"
-                    VerticalAlignment="Top"
-                    Click="button3_Click"
-                    Content="Stop" />
-                <TextBox
-                    x:Name="textBox1"
-                    Width="290"
-                    Height="24"
-                    Margin="102,38,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
-                <Label
-                    x:Name="label"
-                    Height="24"
-                    Margin="24,46,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="应用名称" />
-                <Label
-                    x:Name="label复制__C_"
-                    Height="24"
-                    Margin="4,128,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="协议(默认TCP)" />
-                <ComboBox
-                    x:Name="comboBox1"
-                    Width="290"
-                    Margin="102,120,0,0">
-                    <ComboBoxItem Content="TCP" />
-                    <ComboBoxItem Content="UDP" />
-                </ComboBox>
-                <TextBox
-                    x:Name="textBox2"
-                    Width="290"
-                    Height="24"
-                    Margin="102,77,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
-                <Label
-                    x:Name="label复制__C_1"
-                    Height="24"
-                    Margin="38,85,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="端口" />
-                <TextBox
-                    x:Name="textBox4"
-                    Width="385"
-                    Height="340"
-                    Margin="405,0,0,10"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Bottom"
-                    Background="Gray"
-                    Foreground="DarkGreen"
-                    IsReadOnlyCaretVisible="True"
-                    TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" />
-                <TextBox
-                    x:Name="textBox3"
-                    Width="290"
-                    Height="24"
-                    Margin="102,160,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    TextWrapping="Wrap" />
-                <Label
-                    x:Name="label复制__C_1复制__C_"
-                    Height="24"
-                    Margin="10,168,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="目标电脑名字"
-                    RenderTransformOrigin="0.488,0.657" />
-                <TextBox
-                    x:Name="textBox5"
-                    Width="290"
-                    Height="24"
-                    Margin="102,200,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    IsReadOnly="True"
-                    TextWrapping="Wrap" />
-                <Label
-                    x:Name="label复制__C_1复制__C_复制__C_"
-                    Height="24"
-                    Margin="22,208,0,0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Content="本地端口"
-                    RenderTransformOrigin="0.488,0.657" />
-                <Button x:Name="button" Content="清空输出" Margin="404,0,0,0" VerticalAlignment="Top" Height="60" Width="188" Click="button_Click"/>
-                <Button x:Name="button复制__C_" Content="启动P2P进程" Margin="598,0,0,0" VerticalAlignment="Top" Height="60" Width="192" Click="button复制__C__Click"/>
-            </Grid>
-        </TabItem>
         <TabItem Header="FRP">
-            <Grid Background="#FFE5E5E5">
+            <Grid Background="#FFE5E5E5" Margin="2,0,-2,0">
                 <Button
                     x:Name="button1_frp"
                     Width="368"
                     Height="76"
-                    Margin="24,260,0,0"
+                    Margin="24,238,0,0"
                     VerticalAlignment="Top"
                     Click="button1_frp_Click"
                     Content="Start"
@@ -141,7 +30,7 @@
                     x:Name="button2_frp"
                     Width="368"
                     Height="76"
-                    Margin="24,341,0,0"
+                    Margin="24,318,0,0"
                     VerticalAlignment="Top"
                     Click="button2_frp_Click"
                     Content="Stop" />
@@ -166,12 +55,13 @@
                     Margin="102,111,0,0" Height="41">
                     <ComboBoxItem Content="TCP" />
                     <ComboBoxItem Content="UDP" />
+                    <ComboBoxItem Content="HTTP"/>
                 </ComboBox>
                 <TextBox
                     x:Name="textBox4_frp"
                     Width="385"
-                    Height="340"
-                    Margin="405,0,0,10"
+                    Height="331"
+                    Margin="405,0,0,33"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
                     Background="Gray"
@@ -203,6 +93,83 @@
                     VerticalAlignment="Top"
                     Content="本地端口"
                     RenderTransformOrigin="0.488,0.657" />
+            </Grid>
+        </TabItem>
+        <TabItem Height="30" Header="Easytier" Width="100">
+            <Grid Background="#FFE5E5E5">
+                <Button
+                    x:Name="button1_et"
+                    Width="368"
+                    Height="76"
+                    Margin="26,240,0,0"
+                    VerticalAlignment="Top"
+                    Content="Start"
+                    Style="{StaticResource {x:Static ui:ThemeKeys.AccentButtonStyleKey}}" Click="button1_et_Click" />
+                <Button
+                    x:Name="button2_et"
+                    Width="368"
+                    Height="76"
+                    Margin="26,322,0,0"
+                    VerticalAlignment="Top"
+                    Content="Stop" Click="button2_et_Click" />
+                <TextBox
+                    x:Name="textBox4_et"
+                    Width="385"
+                    Height="321"
+                    Margin="405,0,0,29"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Background="Gray"
+                    Foreground="DarkGreen"
+                    IsReadOnlyCaretVisible="True"
+                    TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Visible" />
+                <Button x:Name="button3_et" Content="清空输出" Margin="405,0,0,0" VerticalAlignment="Top" Height="60" Width="385" Click="button3_et_Click"/>
+                <TextBox
+                    x:Name="textBox3_et"
+                    Width="292"
+                    Height="42"
+                    Margin="102,135,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    TextWrapping="Wrap" />
+                <Label
+                    x:Name="label复制__C_1复制__C_复制__C_复制__C_复制__C_复制__C_"
+                    Height="31"
+                    Margin="24,147,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="本地ip"
+                    RenderTransformOrigin="0.488,0.657" />
+                <TextBox
+                    x:Name="textBox1_et"
+                    Width="290"
+                    Height="24"
+                    Margin="102,38,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    TextWrapping="Wrap" />
+                <Label
+                    x:Name="label复制__C_2"
+                    Height="24"
+                    Margin="24,46,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="应用名称" />
+                <TextBox
+                    x:Name="textBol2_et"
+                    Width="290"
+                    Height="24"
+                    Margin="102,90,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    TextWrapping="Wrap" />
+                <Label
+                    x:Name="label复制__C_2复制__C_"
+                    Height="24"
+                    Margin="24,98,0,0"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Content="应用密码" />
             </Grid>
         </TabItem>
     </TabControl>

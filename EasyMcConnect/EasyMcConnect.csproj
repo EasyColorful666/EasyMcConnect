@@ -9,29 +9,25 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="frpc.exe" />
-    <None Remove="frpc.toml" />
-    <None Remove="openp2p.exe" />
+    <None Remove="res\easytier-core.exe" />
+    <None Remove="res\frpc.exe" />
+    <None Remove="res\frpc.toml" />
+    <None Remove="res\Packet.dll" />
+    <None Remove="res\wintun.dll" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="frpc.toml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
+    <Resource Include="res\easytier-core.exe" />
+    <Resource Include="res\frpc.exe" />
+    <Resource Include="res\frpc.toml" />
+    <Resource Include="res\Packet.dll" />
+    <Resource Include="res\wintun.dll" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="iNKORE.UI.WPF.Modern" Version="0.10.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Tomlyn" Version="0.19.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="frpc.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="openp2p.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
 </Project>
